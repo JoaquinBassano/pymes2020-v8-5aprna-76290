@@ -82,13 +82,14 @@ export class ContactosComponent implements OnInit {
     
     // agregar post
 
-  
+    if (itemCopy.IdContacto == 0 || itemCopy.IdContacto == null) {
+      itemCopy.IdContacto = 0;
       this.contactosService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         this.modalDialogService.Alert("Registro agregado correctamente.");
         this.GetContactos();
       });
-    
+    }
     
   }
 
